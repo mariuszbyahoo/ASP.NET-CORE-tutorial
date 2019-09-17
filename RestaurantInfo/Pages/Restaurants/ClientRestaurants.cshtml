@@ -1,0 +1,21 @@
+﻿@page
+@model RestaurantInfo.Pages.Restaurants.ClientRestaurantsModel
+@{
+    ViewData["Title"] = "ClientRestaurants";
+}
+
+<h1>ClientRestaurants</h1>
+
+@section Scripts
+{
+    <script>
+        $(function () {
+            $.ajax("/api/restaurants/",
+                { method: "get" })
+                .then(function (response) {
+                    console.dir(response);
+                });
+        });
+    </script>
+}
+
