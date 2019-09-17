@@ -29,7 +29,7 @@ namespace RestaurantInfo
 
             services.AddDbContextPool<RestaurantInfoDbContext>(options =>
             {
-               options.UseSqlServer(Configuration.GetConnectionString("RestaurantInfoDb"))
+                options.UseSqlServer(Configuration.GetConnectionString("RestaurantInfoDb"));
             });
 
             services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
