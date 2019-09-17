@@ -34,7 +34,12 @@
                 <a class="btn badge-info"
                    asp-page="./Edit"
                    asp-route-restaurantId="@restaurant.Id">
-                    Edit
+                   Edit
+                </a>
+                <a class="btn badge-danger"
+                   asp-page="./Delete"
+                   asp-route-restaurantId="@restaurant.Id">
+                   Delete
                 </a>
             </td>
         </tr>
