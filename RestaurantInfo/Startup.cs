@@ -46,7 +46,8 @@ namespace RestaurantInfo
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, 
+            IHostingEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -61,6 +62,7 @@ namespace RestaurantInfo
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.UseNodeModules(env);
             app.UseCookiePolicy();
 
             app.UseMvc();
