@@ -32,7 +32,7 @@ namespace RestaurantInfo
                 options.UseSqlServer(Configuration.GetConnectionString("RestaurantInfoDb"));
             });
 
-            services.AddSingleton<IRestaurantData, InMemoryRestaurantData>();
+            services.AddScoped<IRestaurantData, SqlRestaurantData>();
 
             services.Configure<CookiePolicyOptions>(options =>
             {

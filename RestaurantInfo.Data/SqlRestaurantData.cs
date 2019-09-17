@@ -9,7 +9,7 @@ namespace RestaurantInfo.Data
     {
         private readonly RestaurantInfoDbContext db;
 
-        public SqlRestaurantData (RestaurantInfoDbContext cd)
+        public SqlRestaurantData (RestaurantInfoDbContext db)
         {
             this.db = db;
         }
