@@ -11,6 +11,7 @@ namespace RestaurantInfo.Data
         Restaurant Update(Restaurant updatedRestaurant);
         Restaurant Add(Restaurant restaurant);
         Restaurant Delete(int id);
+        int GetCountOfRestaurants();
         int Commit();
     }
 }
