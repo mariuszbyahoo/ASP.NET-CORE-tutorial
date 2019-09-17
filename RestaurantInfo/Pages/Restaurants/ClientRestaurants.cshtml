@@ -6,6 +6,8 @@
 
 <h1>ClientRestaurants</h1>
 
+<table class="table" id="restaurants"
+
 @section Scripts
 {
 
@@ -23,10 +25,24 @@
 
     <script>
         $(function () {
+
+                var cuisines =["Unknown", "Mexican", "Italian", "Indian"];
+
             $.ajax("/api/restaurants/",
                 { method: "get" })
                 .then(function (response) {
-                    console.dir(response);
+
+                    $("#restaurants").dataTable({
+                        data: response,
+                            columns: [
+                                { "data": "name"},
+                                { "data": "location"},
+                                { "data": "cuisine", "render": function(data){
+                                        return cuisines[data];
+                                    }
+                                }
+                            ]
+                    });
                 });
         });
     </script>
