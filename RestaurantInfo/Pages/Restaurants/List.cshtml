@@ -18,33 +18,10 @@
     </div>
 </form>
 
-<table class="table">
-    @foreach (var restaurant in Model.restaurants)
-    {
-        <tr>
-            <td>@restaurant.Name</td>
-            <td>@restaurant.Location</td>
-            <td>@restaurant.Cuisine</td>
-            <td>
-                <a class="btn badge-info"
-                   asp-page="./Detail"
-                   asp-route-restaurantId="@restaurant.Id">
-                    Details
-                </a>
-                <a class="btn badge-info"
-                   asp-page="./Edit"
-                   asp-route-restaurantId="@restaurant.Id">
-                   Edit
-                </a>
-                <a class="btn badge-danger"
-                   asp-page="./Delete"
-                   asp-route-restaurantId="@restaurant.Id">
-                   Delete
-                </a>
-            </td>
-        </tr>
-    }
-</table>
+@foreach(var restaurant in Model.restaurants)
+{
+    <partial name="_Summary" model="restaurant" />
+}
 
 <a asp-page=".\Edit" class="btn btn-dark">+Add</a>
 
