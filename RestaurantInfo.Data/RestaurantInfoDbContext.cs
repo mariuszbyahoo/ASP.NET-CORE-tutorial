@@ -6,8 +6,13 @@ using System.Text;
 
 namespace RestaurantInfo.Data
 {
-    class RestaurantInfoDbContext : DbContext
+    public class RestaurantInfoDbContext : DbContext
     {
+        public RestaurantInfoDbContext(DbContextOptions<RestaurantInfoDbContext> options)
+            : base (options)
+        {
+
+        }
         public DbSet<Restaurant> Restaurants { get; set; }
 
     }
