@@ -10,20 +10,20 @@
         <span>Cuisine: @Model.Cuisine</span>
     </div>
     <div class="card-footer">
-        <a class="btn badge-info"
+        <a class="btn bg-light"
            asp-page="./Detail"
            asp-route-restaurantId="@Model.Id">
-            Details
+           <img src="~/info.svg" />
         </a>
-        <a class="btn badge-info"
+        <a class="btn bg-light"
            asp-page="./Edit"
            asp-route-restaurantId="@Model.Id">
-            Edit
+           <img src="~/pencil.svg" />
         </a>
-        <a class="btn badge-danger"
+        <a class="btn btn-outline-danger"
            asp-page="./Delete"
            asp-route-restaurantId="@Model.Id">
-            Delete
+           <img src="~/trashcan.svg" />
         </a>
     </div>
 </div>

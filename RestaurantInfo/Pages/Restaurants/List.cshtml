@@ -10,8 +10,8 @@
             <input type="search" class="form-control"
                    asp-for="SearchTerm" />
             <span class="input-group-btn">
-                <button class="btn btn-danger">
-                    Search
+                <button class="btn btn-light">
+                    <img src="~/search.svg" />
                 </button>
             </span>
         </div>
@@ -23,7 +23,9 @@
     <partial name="_Summary" model="restaurant" />
 }
 
-<a asp-page=".\Edit" class="btn btn-dark">+Add</a>
+<a asp-page=".\Edit" class="btn btn-outline-info" >
+    <img src="~/plus.svg" />
+</a>
 
 @section footer{
     <div>@Model.Message</div>
