@@ -60,12 +60,39 @@ namespace RestaurantInfo
                 app.UseHsts();
             }
 
+            app.Use(SayHelloMiddleware);
+
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseNodeModules(env);
             app.UseCookiePolicy();
-
             app.UseMvc();
+
+        }
+        /*
+         * Poni¿ej mamy przyk³¹dowe Middleware, wymaga on komfortowej pracy z wyra¿eniami lambda i delegatami ale jeœli potrzebujesz "Cross-Cutting Concern" 
+         * w Twojej aplikacji, co zawsze bêdzie sprawdzaæ HTTP Header albo ewentualnie ustawiæ Response Header
+         * dla ka¿dego Response, to s¹ w³aœnie zachowania które mo¿na zaimplementowaæ z u¿yciem 
+         * middleware.
+         *  
+         *  # Cross-Cutting Concern (zagadnienia przecinaj¹ce)-> Stanowi¹ one te fragmenty kodu, które maj¹ zastosowanie w ca³ej aplikacji, a nie tylko w konkretnej klasie lub metodzie.
+         *  wiêcej informacji: https://msdn.microsoft.com/pl-pl/dn890694.aspx
+         */
+        private RequestDelegate SayHelloMiddleware(
+            RequestDelegate arg)
+        {
+            return async ctx =>
+            {
+                if (ctx.Request.Path.StartsWithSegments("/hello"))
+                {
+                    await ctx.Response.WriteAsync("Hello World!");
+                }
+                else
+                {
+                    await arg(ctx);
+                }
+            };
         }
     }
 }
